@@ -1,0 +1,48 @@
+---
+title: "01 R blog setup"
+author: "Kesava Asam"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+Creating an R blog using Blogdown (Hugo Apero) and deploying it to Netlify. This blog will host different SOPs that were developed during my Bioinfo endevors.
+
+# Steps
+
+- Create a Github repo add a README.md
+
+- Clone the Github repo to RStudio using the HTTPS
+
+- Install Blogdown package and Hugo 
+
+- 
+
+# Install
+
+```{r}
+install.packages("blogdown")
+blogdown::install_hugo()
+
+# Check Hugo version
+blogdown::hugo_version()
+```
+
+```{r}
+library(blogdown)
+
+new_site(theme = "hugo-apero/hugo-apero", 
+           format = "toml",
+           sample = FALSE,
+           empty_dirs = TRUE)
+```
+
+```{r}
+check_site()
+```
+
