@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Decode &amp; Deploy</title>
+    <link>http://localhost:4321/about/</link>
+    <description>Recent content in About on Decode &amp; Deploy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:4321/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:4321/about/header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/about/header/</guid>
+      <description>I&amp;rsquo;m a Hugo theme you&amp;rsquo;ll want to hang out with. &amp;#x1f1eb;&amp;#x1f1f7;&#xA;The page you are reading is based on a markdown file- look in content/about/ to edit. There, look inside the header, main, and sidebar folders to get started building your own &amp;ldquo;about&amp;rdquo; page.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:4321/about/sidebar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/about/sidebar/</guid>
+      <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
+    </item>
+    <item>
+      <title>Why apéro?</title>
+      <link>http://localhost:4321/about/main/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/about/main/</guid>
+      <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
+    </item>
+  </channel>
+</rss>
