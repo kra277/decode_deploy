@@ -46,3 +46,25 @@ new_site(theme = "hugo-apero/hugo-apero",
 check_site()
 ```
 
+
+# Creating
+
+## A new R post
+
+- In the addins, click on new post.
+
+- Give a title. Author and Date is needed to be changed.
+
+- Subdirectory is where the post needs to be located.
+
+- Categories, give a category to club all the categories into one later if needed.
+
+- Tags
+
+- Format. Pick .Rmarkdown
+
+- Once the code is added to the mardkown, knit it to HTML.
+
+- Commit and Push. 
+
+
