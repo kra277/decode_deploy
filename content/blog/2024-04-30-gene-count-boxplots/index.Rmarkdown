@@ -1,0 +1,168 @@
+---
+title: Gene Count Boxplots
+author: Kesava Asam
+date: '2024-04-30'
+slug: []
+categories:
+  - plots
+tags:
+  - rnaseq
+  - genecounts
+subtitle: ''
+excerpt: ''
+draft: yes
+series: ~
+layout: single
+---
+# Packages
+
+```{r eval=FALSE, include=FALSE}
+## Install if needed
+package_list <- 
+c("BiocManager", "tidyverse", "janitor", "gt", "here")
+
+for(package in package_list) {           
+  if (!requireNamespace(package, quietly = TRUE))
+    install.packages(package)                  
+}
+
+BiocManager::install("DESeq2", quietly = TRUE)
+```
+
+```{r results='hide', message=F, warning=F}
+# Load required packages
+library(tidyverse) # Data wrangling
+library(janitor) # Df cleanup
+library(gt) # for displaying data tables in a pdf
+library(DESeq2) # Change data to matrix
+library(here) # Create customized upset plot
+```
+
+# Preface
+
+This document shows how to generate Boxplots for top DEG using the Variance stabilized counts from RNA seq results. 
+
+Required files for Gene counts Boxplots: 
+
+-     Metadata/phenotype file --> metadata
+-     VST Normalized counts --> vst_counts
+-     DEG results --> deg_res (Note these are arranged based on Pvalue)
+
+\newpage
+
+# Gene Count Boxplots
+
+## Load
+
+Load DEG results, VST stabilized gene counts, and metadata
+
+```{r}
+# Loading example RData file that has required files
+load(here("content/blog/2024-04-30-gene-count-boxplots/data/example_data.RData"))
+```
+
+## Checks
+
+Check how the data is formatted
+
+```{r}
+metadata %>% 
+  head(5) %>% 
+  gt() 
+```
+
+```{r}
+vst_counts
+```
+
+vst_counts need to be converted to a tibble with rownames to column
+
+```{r}
+deg_res[1:5, 1:5] %>% 
+  gt() 
+```
+
+\newpage
+
+## Data prep
+
+```{r}
+# convert the VST Normalized counts into a dataframe
+vst_res_df <- 
+  assay(vst_counts) %>% 
+  as_tibble(rownames = "ENTREZID")
+
+# make a df for expression plots
+expr_df <- 
+  deg_res %>% 
+  # join the DEG with the variance stabilized counts using Entrez ID column
+  inner_join(vst_res_df, by = "ENTREZID") %>% 
+  # Remove unneccessary columns
+  dplyr::select(-c(ENTREZID, log2FoldChange, pvalue, 
+                   padj, qvalue, baseMean, lfcSE, GENENAME)) %>% 
+  # Pick top 10 DEG
+  head(10) %>% 
+  # pivot longer to get all normalized counts to one column
+  pivot_longer(!SYMBOL, names_to = "sample", values_to = "norm_counts") %>% 
+  # Join with metadata using sample column
+  inner_join(metadata, by = "sample")
+```
+
+## Rank genes
+
+To show the genes based on the pvalue instead of alphabetical. Get the genes and relevel in the next step
+
+```{r}
+# This will be used to relevel the gene list
+gene_rank <- 
+  deg_res %>% 
+  head(10) %>% 
+  pull(SYMBOL)
+```
+
+\newpage
+
+## Make Plot
+
+```{r}
+gc_boxplot <- 
+  expr_df %>% 
+  mutate(SYMBOL = fct_relevel(SYMBOL, gene_rank)) %>% 
+  mutate(condition = as.factor(condition)) %>%
+  ggplot(aes(x = SYMBOL, y = norm_counts, fill = condition)) +
+  
+  geom_point(size = 3.5, alpha = 0.3, shape = 21, 
+             position = position_dodge(0.55)) +
+  
+  stat_summary(fun.data = "mean_cl_boot", alpha = 0.8,
+               geom = "crossbar", width = 0.5, color = "black",
+               position = position_dodge(0.55)) +
+  
+  scale_color_manual(values = c("darkorchid4", "gold2")) +
+  scale_fill_manual(values = c("darkorchid4", "gold2")) +
+  
+  labs(
+    title = "Expression Box Plot of Top DEG", 
+    subtitle = "Variance stabilized transformed gene counts were plotted",
+    x = "", 
+    y = "Counts"
+  ) +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        panel.grid.minor = element_line(linewidth =  0.1), 
+        panel.grid.major = element_line(linewidth =  0.4, color = "gray85"))
+```
+
+
+\newpage
+
+```{r fig.height=8, fig.width=10}
+gc_boxplot
+```
+
+
+\newpage
+
+```{r}
+sessionInfo()
+```
