@@ -58,7 +58,7 @@ Load DEG results, VST stabilized gene counts, and metadata
 
 ```{r}
 # Loading example RData file that has required files
-load(here("content/blog/2024-04-30-gene-count-boxplots/data/example_data.RData"))
+load(here("content/blog/2024-04-30-gene-count-boxplots/example_data.RData"))
 ```
 
 ## Checks
