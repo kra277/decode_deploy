@@ -1,0 +1,120 @@
+---
+title: GC plots v2
+author: Kesava Asam
+date: '2024-04-30'
+slug: []
+categories:
+  - plots
+tags:
+  - rnaseq
+  - genecounts
+---
+
+# Preface
+
+This document shows how to generate Boxplots for top DEG using the Variance stabilized counts from RNA seq results. 
+
+Required files for Gene counts Boxplots: 
+
+-     Metadata/phenotype file --> metadata
+-     VST Normalized counts --> vst_counts
+-     DEG results --> deg_res (Note these are arranged based on Pvalue)
+
+
+```{r results='hide', message=F, warning=F}
+# Load required packages
+library(tidyverse) # Data wrangling
+library(gt) # for displaying data tables in a pdf
+library(here) # Create customized upset plot
+```
+
+## Load
+
+Load DEG results, VST stabilized gene counts, and metadata
+
+```{r}
+# get the working dir path
+wrk_path <- here("content/blog/2024-04-30-gc-plots-v2/")
+
+top_deg <- read.csv(paste0(wrk_path, "top_deg.csv"))
+metadata <- read.csv(paste0(wrk_path, "metadata.csv"))
+vst_cts <- read.csv(paste0(wrk_path, "vst_counts.csv"))
+```
+
+
+Make the Expression DF for Top DEG
+
+```{r}
+expr_df <- 
+  top_deg %>% 
+  # join the DEG with the variance stabilized counts using Entrez ID column
+  inner_join(vst_cts, by = "ENTREZID") %>% 
+  # Remove unneccessary columns
+  dplyr::select(-c(ENTREZID, log2FoldChange, pvalue, 
+                   padj, qvalue, baseMean, lfcSE, GENENAME)) %>% 
+  # Pick top 10 DEG
+  head(10) %>% 
+  # pivot longer to get all normalized counts to one column
+  pivot_longer(!SYMBOL, names_to = "sample", values_to = "norm_counts") %>% 
+  # Join with metadata using sample column
+  inner_join(metadata, by = "sample")
+```
+
+## Rank genes
+
+To show the genes based on the pvalue instead of alphabetical. Get the genes and relevel in the next step
+
+```{r}
+# This will be used to relevel the gene list
+gene_rank <- 
+  top_deg %>% 
+  head(10) %>% 
+  pull(SYMBOL)
+```
+
+\newpage
+
+## Make Plot
+
+```{r}
+gc_boxplot <- 
+  expr_df %>% 
+  mutate(SYMBOL = fct_relevel(SYMBOL, gene_rank)) %>% 
+  mutate(condition = as.factor(condition)) %>%
+  ggplot(aes(x = SYMBOL, y = norm_counts, fill = condition)) +
+  
+  geom_point(size = 3.5, alpha = 0.3, shape = 21, 
+             position = position_dodge(0.55)) +
+  
+  stat_summary(fun.data = "mean_cl_boot", alpha = 0.8,
+               geom = "crossbar", width = 0.5, color = "black",
+               position = position_dodge(0.55)) +
+  
+  scale_color_manual(values = c("darkorchid4", "gold2")) +
+  scale_fill_manual(values = c("darkorchid4", "gold2")) +
+  
+  labs(
+    title = "Expression Box Plot of Top DEG", 
+    subtitle = "Variance stabilized transformed gene counts were plotted",
+    x = "", 
+    y = "Counts"
+  ) +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        panel.grid.minor = element_line(linewidth =  0.1), 
+        panel.grid.major = element_line(linewidth =  0.4, color = "gray85"))
+```
+
+
+\newpage
+
+```{r fig.height=8, fig.width=10}
+gc_boxplot
+```
+
+
+\newpage
+
+```{r}
+sessionInfo()
+```

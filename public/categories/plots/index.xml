@@ -9,6 +9,13 @@
     <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:4321/categories/plots/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>GC plots v2</title>
+      <link>http://localhost:4321/blog/2024-04-30-gc-plots-v2/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/blog/2024-04-30-gc-plots-v2/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Gene Count Boxplots</title>
       <link>http://localhost:4321/blog/2024-04-30-gene-count-boxplots/</link>
       <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
