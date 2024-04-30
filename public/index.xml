@@ -72,6 +72,13 @@
       <description>Packages # Load required packages library(tidyverse) # Data wrangling library(janitor) # Df cleanup library(gt) # for displaying data tables in a pdf library(DESeq2) # Change data to matrix library(here) # Create customized upset plot Preface This document shows how to generate Boxplots for top DEG using the Variance stabilized counts from RNA seq results.&#xA;Required files for Gene counts Boxplots:&#xA;Metadata/phenotype file &amp;ndash;&amp;gt; metadata&#xA;VST Normalized counts &amp;ndash;&amp;gt; vst_counts</description>
     </item>
     <item>
+      <title>Internal Data</title>
+      <link>http://localhost:4321/blog/2024-04-30-internal-data/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/blog/2024-04-30-internal-data/</guid>
+      <description>library(tidyverse) library(gt) Check Data mtcars[1:6, 1:6] %&amp;gt;% gt() &amp;#10; mpg cyl disp hp drat wt 21.0 6 160 110 3.90 2.620 21.0 6 160 110 3.90 2.875 22.8 4 108 93 3.85 2.320 21.4 6 258 110 3.08 3.215 18.7 8 360 175 3.15 3.440 18.1 6 225 105 2.76 3.460 &amp;#10; Plot mtcars %&amp;gt;% ggplot(aes(hp, mpg)) + geom_point(alpha = 0.5, size = 3, color = &amp;#34;orchid2&amp;#34;) + geom_smooth(method = &amp;#39;lm&amp;#39;, color = &amp;#34;orchid4&amp;#34;, se = F, linewidth = 2, alpha = 0.</description>
+    </item>
+    <item>
       <title>Testing a Page</title>
       <link>http://localhost:4321/blog/social/</link>
       <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>

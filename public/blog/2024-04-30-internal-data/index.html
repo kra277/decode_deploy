@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.125.4">
+<title>Internal Data | Decode &amp; Deploy</title>
+
+
+<meta property="twitter:site" content="@renthusiast3">
+<meta property="twitter:creator" content="@renthusiast3">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="This blog will host different SOPs that were developed during my Bioinfo endeavors.">
+
+
+<meta property="og:site_name" content="Decode &amp; Deploy">
+<meta property="og:title" content="Internal Data | Decode &amp; Deploy">
+<meta property="og:description" content="This blog will host different SOPs that were developed during my Bioinfo endeavors." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="http://localhost:4321/blog/2024-04-30-internal-data/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="http://localhost:4321/blog/sidebar-listing.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="http://localhost:4321/blog/sidebar-listing.jpg" >
+    
+    
+  
+  <meta itemprop="name" content="Internal Data">
+  <meta itemprop="description" content="library(tidyverse) library(gt) Check Data mtcars[1:6, 1:6] %&gt;% gt() &#10; mpg cyl disp hp drat wt 21.0 6 160 110 3.90 2.620 21.0 6 160 110 3.90 2.875 22.8 4 108 93 3.85 2.320 21.4 6 258 110 3.08 3.215 18.7 8 360 175 3.15 3.440 18.1 6 225 105 2.76 3.460 &#10; Plot mtcars %&gt;% ggplot(aes(hp, mpg)) &#43; geom_point(alpha = 0.5, size = 3, color = &#34;orchid2&#34;) &#43; geom_smooth(method = &#39;lm&#39;, color = &#34;orchid4&#34;, se = F, linewidth = 2, alpha = 0.">
+  <meta itemprop="datePublished" content="2024-04-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-04-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="268">
+  
+  
+
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/bioinfo_favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/bioinfo_favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.9a50b0d2a37a25e9303ea89c4d2d3034d9b7f591ae8eb5a9b9faad42ff53b954.css" integrity="sha256-mlCw0qN6JekwPqicTS0wNNm39ZGujrWpufqtQv9TuVQ=" media="screen">
+  
+  
+  <script src="/panelset.min.ed1ac24b6e16f4e2481e3d1d098ae66f5bc77438aef619e6e266d8ac5b00dc72.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.809dc0d56dc999c0f5c3a3c5a9323b8b091b1958801c982effdfcb2229e62838.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="http://localhost:4321/" title="Home">
+      <img src="/img/bioinfo_logo.png" class="dib db-l h2 w-auto" alt="Decode &amp; Deploy">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Blogophonic">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Bio-info Projects">Projects</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Bioinfo Pipelines">Pipelines</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/collection/" title="A collection of Tips and Tricks">Tips and Tricks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/elements/" title="Bio-info Resources">Resources</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Internal Data</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Kesava Asam</p>
+        <p class="f7 db mv0 ttu">April 30, 2024</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(tidyverse)
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(gt)
+</span></span></code></pre></div>
+
+
+
+<h1 id="check-data">Check Data
+  <a href="#check-data"></a>
+</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>mtcars[1<span style="color:#000;font-weight:bold">:</span><span style="color:#099">6</span>, <span style="color:#099">1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#099">6</span>] <span style="color:#000;font-weight:bold">%&gt;%</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">gt</span>()
+</span></span></code></pre></div><div id="qihxxvcnjb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qihxxvcnjb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+&#10;#qihxxvcnjb thead, #qihxxvcnjb tbody, #qihxxvcnjb tfoot, #qihxxvcnjb tr, #qihxxvcnjb td, #qihxxvcnjb th {
+  border-style: none;
+}
+&#10;#qihxxvcnjb p {
+  margin: 0;
+  padding: 0;
+}
+&#10;#qihxxvcnjb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+&#10;#qihxxvcnjb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+&#10;#qihxxvcnjb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+&#10;#qihxxvcnjb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+&#10;#qihxxvcnjb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+&#10;#qihxxvcnjb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+&#10;#qihxxvcnjb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+&#10;#qihxxvcnjb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+&#10;#qihxxvcnjb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+&#10;#qihxxvcnjb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+&#10;#qihxxvcnjb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+&#10;#qihxxvcnjb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+&#10;#qihxxvcnjb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+&#10;#qihxxvcnjb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+&#10;#qihxxvcnjb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#qihxxvcnjb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+&#10;#qihxxvcnjb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+&#10;#qihxxvcnjb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+&#10;#qihxxvcnjb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#qihxxvcnjb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+&#10;#qihxxvcnjb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#qihxxvcnjb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+&#10;#qihxxvcnjb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#qihxxvcnjb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+&#10;#qihxxvcnjb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#qihxxvcnjb .gt_left {
+  text-align: left;
+}
+&#10;#qihxxvcnjb .gt_center {
+  text-align: center;
+}
+&#10;#qihxxvcnjb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+&#10;#qihxxvcnjb .gt_font_normal {
+  font-weight: normal;
+}
+&#10;#qihxxvcnjb .gt_font_bold {
+  font-weight: bold;
+}
+&#10;#qihxxvcnjb .gt_font_italic {
+  font-style: italic;
+}
+&#10;#qihxxvcnjb .gt_super {
+  font-size: 65%;
+}
+&#10;#qihxxvcnjb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+&#10;#qihxxvcnjb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+&#10;#qihxxvcnjb .gt_indent_1 {
+  text-indent: 5px;
+}
+&#10;#qihxxvcnjb .gt_indent_2 {
+  text-indent: 10px;
+}
+&#10;#qihxxvcnjb .gt_indent_3 {
+  text-indent: 15px;
+}
+&#10;#qihxxvcnjb .gt_indent_4 {
+  text-indent: 20px;
+}
+&#10;#qihxxvcnjb .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    &#10;    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mpg">mpg</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="cyl">cyl</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="disp">disp</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="hp">hp</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="drat">drat</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="wt">wt</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="mpg" class="gt_row gt_right">21.0</td>
+<td headers="cyl" class="gt_row gt_right">6</td>
+<td headers="disp" class="gt_row gt_right">160</td>
+<td headers="hp" class="gt_row gt_right">110</td>
+<td headers="drat" class="gt_row gt_right">3.90</td>
+<td headers="wt" class="gt_row gt_right">2.620</td></tr>
+    <tr><td headers="mpg" class="gt_row gt_right">21.0</td>
+<td headers="cyl" class="gt_row gt_right">6</td>
+<td headers="disp" class="gt_row gt_right">160</td>
+<td headers="hp" class="gt_row gt_right">110</td>
+<td headers="drat" class="gt_row gt_right">3.90</td>
+<td headers="wt" class="gt_row gt_right">2.875</td></tr>
+    <tr><td headers="mpg" class="gt_row gt_right">22.8</td>
+<td headers="cyl" class="gt_row gt_right">4</td>
+<td headers="disp" class="gt_row gt_right">108</td>
+<td headers="hp" class="gt_row gt_right">93</td>
+<td headers="drat" class="gt_row gt_right">3.85</td>
+<td headers="wt" class="gt_row gt_right">2.320</td></tr>
+    <tr><td headers="mpg" class="gt_row gt_right">21.4</td>
+<td headers="cyl" class="gt_row gt_right">6</td>
+<td headers="disp" class="gt_row gt_right">258</td>
+<td headers="hp" class="gt_row gt_right">110</td>
+<td headers="drat" class="gt_row gt_right">3.08</td>
+<td headers="wt" class="gt_row gt_right">3.215</td></tr>
+    <tr><td headers="mpg" class="gt_row gt_right">18.7</td>
+<td headers="cyl" class="gt_row gt_right">8</td>
+<td headers="disp" class="gt_row gt_right">360</td>
+<td headers="hp" class="gt_row gt_right">175</td>
+<td headers="drat" class="gt_row gt_right">3.15</td>
+<td headers="wt" class="gt_row gt_right">3.440</td></tr>
+    <tr><td headers="mpg" class="gt_row gt_right">18.1</td>
+<td headers="cyl" class="gt_row gt_right">6</td>
+<td headers="disp" class="gt_row gt_right">225</td>
+<td headers="hp" class="gt_row gt_right">105</td>
+<td headers="drat" class="gt_row gt_right">2.76</td>
+<td headers="wt" class="gt_row gt_right">3.460</td></tr>
+  </tbody>
+  &#10;  
+</table>
+</div>
+
+
+
+
+<h1 id="plot">Plot
+  <a href="#plot"></a>
+</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>mtcars <span style="color:#000;font-weight:bold">%&gt;%</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(hp, mpg)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.5</span>, size <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">3</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;orchid2&#34;</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;lm&#39;</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;orchid4&#34;</span>, 
+</span></span><span style="display:flex;"><span>              se <span style="color:#000;font-weight:bold">=</span> <span style="color:#999">F</span>, linewidth <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">2</span>, alpha <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.5</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme_bw</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">labs</span>(title <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;As horsepower increases, mileage decreases&#34;</span>)
+</span></span></code></pre></div><pre><code>## `geom_smooth()` using formula = 'y ~ x'
+</code></pre>
+<img src="/blog/2024-04-30-internal-data/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+
+
+
+<h1 id="session-info">Session Info
+  <a href="#session-info"></a>
+</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">sessionInfo</span>()
+</span></span></code></pre></div><pre><code>## R version 4.3.0 (2023-04-21)
+## Platform: aarch64-apple-darwin20 (64-bit)
+## Running under: macOS 14.4.1
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## time zone: Asia/Kolkata
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] gt_0.10.0       lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1  
+##  [5] dplyr_1.1.4     purrr_1.0.2     readr_2.1.4     tidyr_1.3.0    
+##  [9] tibble_3.2.1    ggplot2_3.4.4   tidyverse_2.0.0
+## 
+## loaded via a namespace (and not attached):
+##  [1] sass_0.4.7        utf8_1.2.4        generics_0.1.3    xml2_1.3.5       
+##  [5] lattice_0.22-5    blogdown_1.19     stringi_1.8.1     hms_1.1.3        
+##  [9] digest_0.6.33     magrittr_2.0.3    evaluate_0.23     grid_4.3.0       
+## [13] timechange_0.2.0  bookdown_0.39     fastmap_1.1.1     Matrix_1.6-3     
+## [17] jsonlite_1.8.7    mgcv_1.9-0        fansi_1.0.5       scales_1.2.1     
+## [21] jquerylib_0.1.4   cli_3.6.1         rlang_1.1.2       munsell_0.5.0    
+## [25] splines_4.3.0     withr_2.5.2       cachem_1.0.8      yaml_2.3.7       
+## [29] tools_4.3.0       tzdb_0.4.0        colorspace_2.1-0  vctrs_0.6.4      
+## [33] R6_2.5.1          lifecycle_1.0.4   pkgconfig_2.0.3   pillar_1.9.0     
+## [37] bslib_0.5.1       gtable_0.3.4      glue_1.6.2        highr_0.10       
+## [41] xfun_0.43         tidyselect_1.2.0  rstudioapi_0.15.0 knitr_1.45       
+## [45] farver_2.1.1      nlme_3.1-163      htmltools_0.5.7   labeling_0.4.3   
+## [49] rmarkdown_2.25    compiler_4.3.0
+</code></pre>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">April 30, 2024</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">2 minute read, 268 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="http://localhost:4321/blog/2024-04-30-gene-count-boxplots/">&larr; Gene Count Boxplots</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="http://localhost:4321/blog/social/">Testing a Page &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2024 NYU, New York
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/kra277" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/renthusiast3" title="twitter" target="_blank" rel="me noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0002-6247-9905" title="orcid" target="_blank" rel="me noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>
