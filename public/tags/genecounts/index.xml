@@ -9,18 +9,11 @@
     <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:4321/tags/genecounts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GC plots v2</title>
+      <title>Gene Count Boxplots</title>
       <link>http://localhost:4321/blog/2024-04-30-gc-plots-v2/</link>
       <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:4321/blog/2024-04-30-gc-plots-v2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Gene Count Boxplots</title>
-      <link>http://localhost:4321/blog/2024-04-30-gene-count-boxplots/</link>
-      <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blog/2024-04-30-gene-count-boxplots/</guid>
-      <description>Packages # Load required packages library(tidyverse) # Data wrangling library(janitor) # Df cleanup library(gt) # for displaying data tables in a pdf library(DESeq2) # Change data to matrix library(here) # Create customized upset plot Preface This document shows how to generate Boxplots for top DEG using the Variance stabilized counts from RNA seq results.&#xA;Required files for Gene counts Boxplots:&#xA;Metadata/phenotype file &amp;ndash;&amp;gt; metadata&#xA;VST Normalized counts &amp;ndash;&amp;gt; vst_counts</description>
+      <description>Preface When Differential gene expression between two groups is computed it may be good idea to visualize the top DEG gene count distribution between the groups.&#xA;This document shows how to generate Boxplots for the top DEG using the Variance stabilized counts from RNA seq results.&#xA;Required files for Gene counts Boxplots:&#xA;Metadata/phenotype file &amp;ndash;&amp;gt; metadata&#xA;VST Normalized counts &amp;ndash;&amp;gt; vst_counts&#xA;DEG results &amp;ndash;&amp;gt; deg_res (The top few differentially expressed genes)</description>
     </item>
   </channel>
 </rss>

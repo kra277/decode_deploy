@@ -1,5 +1,5 @@
 ---
-title: GC plots v2
+title: Gene Count Boxplots
 author: Kesava Asam
 date: '2024-04-30'
 slug: []
@@ -12,20 +12,22 @@ tags:
 
 # Preface
 
-This document shows how to generate Boxplots for top DEG using the Variance stabilized counts from RNA seq results. 
+When Differential gene expression between two groups is computed it may be good idea to visualize the top DEG gene count distribution between the groups. 
+
+This document shows how to generate Boxplots for the top DEG using the Variance stabilized counts from RNA seq results. 
 
 Required files for Gene counts Boxplots: 
 
 -     Metadata/phenotype file --> metadata
 -     VST Normalized counts --> vst_counts
--     DEG results --> deg_res (Note these are arranged based on Pvalue)
+-     DEG results --> deg_res (The top few differentially expressed genes)
 
 
 ```{r results='hide', message=F, warning=F}
 # Load required packages
-library(tidyverse) # Data wrangling
+library(tidyverse) # Data wrangling and plotting
 library(gt) # for displaying data tables in a pdf
-library(here) # Create customized upset plot
+library(here) # path requirements
 ```
 
 ## Load
@@ -41,19 +43,58 @@ metadata <- read.csv(paste0(wrk_path, "metadata.csv"))
 vst_cts <- read.csv(paste0(wrk_path, "vst_counts.csv"))
 ```
 
+# Check
 
-Make the Expression DF for Top DEG
+Check each file on how the data appears
+
+## Metadata 
+
+```{r}
+metadata %>% 
+  gt()
+```
+
+There are two conditions in the data Prediabetes and Normal.
+
+## Top DEG Res
+
+```{r}
+top_deg %>% 
+  select(ENTREZID, SYMBOL, log2FoldChange, pvalue, padj, qvalue) %>% 
+  gt()
+```
+
+Top 10 DEG are diplayed.
+
+
+## VST Counts
+
+```{r}
+vst_cts[1:4, 1:5] %>% 
+  gt()
+```
+
+Note: Both Top DEG and VST counts have EntrezID with which they would be joined. 
+
+# Plot
+
+## Prep
+
+Prepare the data for plotting. 
+
+- Join the VST and DEG based on the ENTREZ IDs
+- Remove un-neccessary columns
+- Convert the wide table to a long table to get all normalized counts to one column
+- Join with metadata using sample column 
 
 ```{r}
 expr_df <- 
   top_deg %>% 
   # join the DEG with the variance stabilized counts using Entrez ID column
   inner_join(vst_cts, by = "ENTREZID") %>% 
-  # Remove unneccessary columns
+  # Remove un-neccessary columns
   dplyr::select(-c(ENTREZID, log2FoldChange, pvalue, 
                    padj, qvalue, baseMean, lfcSE, GENENAME)) %>% 
-  # Pick top 10 DEG
-  head(10) %>% 
   # pivot longer to get all normalized counts to one column
   pivot_longer(!SYMBOL, names_to = "sample", values_to = "norm_counts") %>% 
   # Join with metadata using sample column
@@ -62,7 +103,7 @@ expr_df <-
 
 ## Rank genes
 
-To show the genes based on the pvalue instead of alphabetical. Get the genes and relevel in the next step
+To show the genes based on the p-value instead of alphabetical order. Get the genes and relevel in the next step
 
 ```{r}
 # This will be used to relevel the gene list
@@ -72,48 +113,33 @@ gene_rank <-
   pull(SYMBOL)
 ```
 
-\newpage
-
 ## Make Plot
 
 ```{r}
 gc_boxplot <- 
   expr_df %>% 
   mutate(SYMBOL = fct_relevel(SYMBOL, gene_rank)) %>% 
-  mutate(condition = as.factor(condition)) %>%
   ggplot(aes(x = SYMBOL, y = norm_counts, fill = condition)) +
-  
-  geom_point(size = 3.5, alpha = 0.3, shape = 21, 
+  geom_point(size = 3.5, alpha = 0.4, shape = 21, 
              position = position_dodge(0.55)) +
-  
   stat_summary(fun.data = "mean_cl_boot", alpha = 0.8,
                geom = "crossbar", width = 0.5, color = "black",
                position = position_dodge(0.55)) +
-  
-  scale_color_manual(values = c("darkorchid4", "gold2")) +
   scale_fill_manual(values = c("darkorchid4", "gold2")) +
-  
-  labs(
-    title = "Expression Box Plot of Top DEG", 
-    subtitle = "Variance stabilized transformed gene counts were plotted",
-    x = "", 
-    y = "Counts"
-  ) +
+  labs(title = "Expression Box Plot of Top DEG", 
+       subtitle = "Variance stabilized transformed gene counts were plotted",
+       x = "", y = "Counts") +
   theme_bw() +
-  theme(legend.position = "bottom", 
-        panel.grid.minor = element_line(linewidth =  0.1), 
-        panel.grid.major = element_line(linewidth =  0.4, color = "gray85"))
+  theme(legend.position = "bottom")
 ```
-
-
-\newpage
 
 ```{r fig.height=8, fig.width=10}
 gc_boxplot
 ```
 
+The plot shows the VST counts of each sample per each gene. This would give an idea on the expression values range in each group. 
 
-\newpage
+# Session Info
 
 ```{r}
 sessionInfo()
