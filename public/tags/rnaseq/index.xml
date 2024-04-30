@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rnaseq on Decode &amp; Deploy</title>
+    <link>http://localhost:4321/tags/rnaseq/</link>
+    <description>Recent content in Rnaseq on Decode &amp; Deploy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:4321/tags/rnaseq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gene Count Boxplots</title>
+      <link>http://localhost:4321/blog/2024-04-30-gene-count-boxplots/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/blog/2024-04-30-gene-count-boxplots/</guid>
+      <description>Packages # Load required packages library(tidyverse) # Data wrangling library(janitor) # Df cleanup library(gt) # for displaying data tables in a pdf library(DESeq2) # Change data to matrix library(here) # Create customized upset plot Preface This document shows how to generate Boxplots for top DEG using the Variance stabilized counts from RNA seq results.&#xA;Required files for Gene counts Boxplots:&#xA;Metadata/phenotype file &amp;ndash;&amp;gt; metadata&#xA;VST Normalized counts &amp;ndash;&amp;gt; vst_counts</description>
+    </item>
+  </channel>
+</rss>
