@@ -11,6 +11,7 @@ if (file.exists("~/.Rprofile")) {
 # are a few sample options; for more options, see
 # https://bookdown.org/yihui/blogdown/global-options.html
 options(
+  blogdown.author = 'Kesava Asam',
   # to automatically serve the site on RStudio startup, set this option to TRUE
   blogdown.serve_site.startup = FALSE,
   # to disable knitting Rmd files on save, set this option to FALSE

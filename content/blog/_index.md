@@ -3,7 +3,7 @@ title: A Blog That Works
 description: |
   This is a fully featured blog that supports categories, 
   tags, series, and pagination.
-author: "The R Markdown Team @RStudio"
+author: "Kesava Asam"
 show_post_thumbnail: true
 thumbnail_left: true # for list-sidebar only
 show_author_byline: true
@@ -22,7 +22,7 @@ sidebar:
     
     Check out the _index.md file in the /blog folder 
     to edit this content. 
-  author: "The R Markdown Team @RStudio"
+  author: "Kesava Asam"
   text_link_label: Subscribe via RSS
   text_link_url: /index.xml
   categories_link: true
@@ -32,7 +32,7 @@ sidebar:
 
 # set up common front matter for all pages inside blog/
 cascade:
-  author: "The R Markdown Team @RStudio"
+  author: "Kesava Asam"
   show_author_byline: true
   show_post_date: true
   show_comments: true # see site config to choose Disqus or Utterances

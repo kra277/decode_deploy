@@ -3,10 +3,11 @@
 text_align_right: false
 show_title_as_headline: false
 headline: |
-  Hello, my name is Kesava Asam. Nice to meet you.
+  Hello World!
 ---
 
 <!-- this is a subheadline -->
-I'm a Hugo theme you'll want to hang out with. :fr: 
 
-The page you are reading is based on a markdown file- look in `content/about/` to edit. There, look inside the `header`, `main`, and `sidebar` folders to get started building your own "about" page.
+Welcome to "Decode and Deploy"—a blog where I dive into the complexities of bioinformatics, sharing the systems and insights that helped me in my research and teaching.   
+
+My name is **Kesava Asam**, I am a Bioinformatician working in academia, where I focus on developing reproducible bioinformatics pipelines, easy to interpret graphs and results.

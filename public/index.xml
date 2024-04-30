@@ -6,7 +6,7 @@
     <description>Recent content on Decode &amp; Deploy</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Netlify</title>
@@ -79,9 +79,9 @@
       <description> Hi, I&#39;m the here-bot cat! Use me to find your way in your website.&#xA;Here I am: content/collection/day02/03-blogdown/index.md To remove me, delete this line inside that file: {{&amp;lt; here &amp;gt;}}&#xA;My content section is: collection My layout is: single-series part 2! does this work? now for some very cool things more get ready! </description>
     </item>
     <item>
-      <title>Set up your social</title>
+      <title>Testing a Page</title>
       <link>http://localhost:4321/blog/social/</link>
-      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:4321/blog/social/</guid>
       <description>There are five places where you can choose to show social icons. Here is the tl;dr:&#xA;site header (set in config.toml), site footer (set in config.toml), homepage (set in content/_index.md), about page in the sidebar (set in content/about/sidebar/index.md), and contact page (set in content/form/contact.md). Read on to learn how to set up your social icons, and how to show/hide them.&#xA;Configure social Wherever you end up wanting to show your social icons, you&amp;rsquo;ll need to start by setting up the links in your site config.</description>
     </item>
@@ -195,7 +195,7 @@
       <link>http://localhost:4321/about/header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:4321/about/header/</guid>
-      <description>I&amp;rsquo;m a Hugo theme you&amp;rsquo;ll want to hang out with. &amp;#x1f1eb;&amp;#x1f1f7;&#xA;The page you are reading is based on a markdown file- look in content/about/ to edit. There, look inside the header, main, and sidebar folders to get started building your own &amp;ldquo;about&amp;rdquo; page.</description>
+      <description>Welcome to &amp;ldquo;Decode and Deploy&amp;rdquo;—a blog where I dive into the complexities of bioinformatics, sharing the systems and insights that helped me in my research and teaching.&#xA;My name is Kesava Asam, I am a Bioinformatician working in academia, where I focus on developing reproducible bioinformatics pipelines, easy to interpret graphs and results.</description>
     </item>
     <item>
       <title></title>
@@ -219,7 +219,7 @@
       <description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.</description>
     </item>
     <item>
-      <title>Why apéro?</title>
+      <title>Why I Started This Blog?</title>
       <link>http://localhost:4321/about/main/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:4321/about/main/</guid>

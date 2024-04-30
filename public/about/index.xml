@@ -12,7 +12,7 @@
       <link>http://localhost:4321/about/header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:4321/about/header/</guid>
-      <description>I&amp;rsquo;m a Hugo theme you&amp;rsquo;ll want to hang out with. &amp;#x1f1eb;&amp;#x1f1f7;&#xA;The page you are reading is based on a markdown file- look in content/about/ to edit. There, look inside the header, main, and sidebar folders to get started building your own &amp;ldquo;about&amp;rdquo; page.</description>
+      <description>Welcome to &amp;ldquo;Decode and Deploy&amp;rdquo;—a blog where I dive into the complexities of bioinformatics, sharing the systems and insights that helped me in my research and teaching.&#xA;My name is Kesava Asam, I am a Bioinformatician working in academia, where I focus on developing reproducible bioinformatics pipelines, easy to interpret graphs and results.</description>
     </item>
     <item>
       <title></title>
@@ -22,7 +22,7 @@
       <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
     </item>
     <item>
-      <title>Why apéro?</title>
+      <title>Why I Started This Blog?</title>
       <link>http://localhost:4321/about/main/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:4321/about/main/</guid>
