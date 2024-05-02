@@ -37,7 +37,7 @@ enableEmoji = true
   description = "This blog will host different SOPs that were developed during my Bioinfo endeavors."
   favicon = "/img/bioinfo_favicon.ico"
   logo = "/img/bioinfo_logo.png"
-  mainSections = ["blog", "project", "talk"]
+  mainSections = ["blog", "pipelines", "tips"]
   navallcaps = true
   # show/hide social icons in site header & footer
   # configure social icons and links below in [[params.social]]
@@ -127,12 +127,12 @@ enableEmoji = true
   [[menu.header]]
     name = "Pipelines"
     title = "Bioinfo Pipelines"
-    url = "/talk/"
+    url = "/pipelines/"
     weight = 3
   [[menu.header]]
     name = "Tips"
     title = "A collection of Tips"
-    url = "/collection/"
+    url = "/tips/"
     weight = 4
     
   # Configure footer  

@@ -1,0 +1,34 @@
+---
+title: 'RNA seq pipeline'
+author: Kesava Asam
+date: '2024-05-02'
+slug: []
+categories:
+  - pipelines
+tags:
+  - rnaseq
+---
+
+# Highlevel
+
+- Create Singularity Container with following packages:
+
+  - fastp
+  - HISAT2
+  - StringTie
+  
+- Use this container in HPC to Convert FASTQ files to Gene counts
+
+- Create a Docker Bioconductor container with following packages:
+
+  - Deseq2
+  - clusterProfiler
+  
+- Use the Bioconductor Docker container to perform for following:
+
+  - Exploratory Data analysis
+  - Differential Gene Expression 
+  - ORA
+  - GSEA
+  - Generate Plots as needed
+  - Make Dashboards
