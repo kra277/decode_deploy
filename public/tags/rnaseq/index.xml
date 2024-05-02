@@ -6,8 +6,15 @@
     <description>Recent content in Rnaseq on Decode &amp; Deploy</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:4321/tags/rnaseq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RNA seq pipeline</title>
+      <link>http://localhost:4321/pipelines/2024-05-02-/</link>
+      <pubDate>Thu, 02 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/pipelines/2024-05-02-/</guid>
+      <description> Highlevel Create Singularity Container with following packages:&#xA;fastp HISAT2 StringTie Use this container in HPC to Convert FASTQ files to Gene counts&#xA;Create a Docker Bioconductor container with following packages:&#xA;Deseq2 clusterProfiler Use the Bioconductor Docker container to perform for following:&#xA;Exploratory Data analysis Differential Gene Expression ORA GSEA Generate Plots as needed Make Dashboards </description>
+    </item>
     <item>
       <title>Gene Count Boxplots</title>
       <link>http://localhost:4321/blog/2024-04-30-gc-plots-v2/</link>

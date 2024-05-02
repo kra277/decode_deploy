@@ -6,13 +6,20 @@
     <description>Recent content in Tags on Decode &amp; Deploy</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:4321/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Genecounts</title>
-      <link>http://localhost:4321/tags/genecounts/</link>
+      <title>Fun</title>
+      <link>http://localhost:4321/tags/fun/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/tags/genecounts/</guid>
+      <guid>http://localhost:4321/tags/fun/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Misc</title>
+      <link>http://localhost:4321/tags/misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/tags/misc/</guid>
       <description></description>
     </item>
     <item>
@@ -23,10 +30,10 @@
       <description></description>
     </item>
     <item>
-      <title>Hugo-Site</title>
-      <link>http://localhost:4321/tags/hugo-site/</link>
+      <title>Genecounts</title>
+      <link>http://localhost:4321/tags/genecounts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/tags/hugo-site/</guid>
+      <guid>http://localhost:4321/tags/genecounts/</guid>
       <description></description>
     </item>
   </channel>
