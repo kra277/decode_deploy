@@ -130,15 +130,10 @@ enableEmoji = true
     url = "/talk/"
     weight = 3
   [[menu.header]]
-    name = "Tips and Tricks"
-    title = "A collection of Tips and Tricks"
+    name = "Tips"
+    title = "A collection of Tips"
     url = "/collection/"
     weight = 4
-  [[menu.header]]
-    name = "Resources"
-    title = "Bio-info Resources"
-    url = "/elements/"
-    weight = 5
     
   # Configure footer  
   [[menu.footer]]
