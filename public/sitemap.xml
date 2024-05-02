@@ -32,9 +32,6 @@
     <loc>http://localhost:4321/blog/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blog/rmarkdown/</loc>
-    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:4321/categories/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
@@ -47,9 +44,6 @@
     <loc>http://localhost:4321/tags/genecounts/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blog/2024-04-30-internal-data/</loc>
-    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:4321/categories/plots/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
@@ -57,12 +51,6 @@
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/tags/</loc>
-    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/blog/social/</loc>
-    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/categories/theme-features/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/collection/</loc>
@@ -99,6 +87,9 @@
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/project/giraffes/</loc>
+    <lastmod>2019-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/categories/theme-features/</loc>
     <lastmod>2019-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/project/penguins/</loc>
