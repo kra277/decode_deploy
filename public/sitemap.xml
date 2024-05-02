@@ -107,18 +107,10 @@
     <loc>http://localhost:4321/elements/</loc>
     <lastmod>2019-02-18T12:27:33-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/about/header/</loc>
-  </url><url>
-    <loc>http://localhost:4321/about/sidebar/</loc>
-  </url><url>
-    <loc>http://localhost:4321/about/</loc>
-  </url><url>
     <loc>http://localhost:4321/contributors/</loc>
   </url><url>
     <loc>http://localhost:4321/license/</loc>
   </url><url>
     <loc>http://localhost:4321/series/</loc>
-  </url><url>
-    <loc>http://localhost:4321/about/main/</loc>
   </url>
 </urlset>

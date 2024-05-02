@@ -1,15 +1,15 @@
 ---
 title: "Decode & Deploy"
-subtitle: "A Wet lab trained researcher's experience of Dry lab"
-description: ""
+subtitle: "Dry Lab Procedures and Pipelines"
+description: "Decode and Deploy is a blog where I dive into the complexities of bioinformatics, sharing the systems and insights that helped me in my research and teaching"
 images:
   - img/large_3d_network.jpg
 image_left: true
-text_align_left: false
+text_align_left: true
 show_social_links: true # specify social accounts in site config
 show_action_link: true
-action_link: /about
-action_label: "Read More &rarr;"
+action_link: /blog
+action_label: "Read latest posts &rarr;"
 action_type: text # text, button
 type: home
 ---

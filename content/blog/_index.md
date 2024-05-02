@@ -1,8 +1,7 @@
 ---
-title: A Blog That Works
+title: Bioinfo Blog
 description: |
-  This is a fully featured blog that supports categories, 
-  tags, series, and pagination.
+  
 author: "Kesava Asam"
 show_post_thumbnail: true
 thumbnail_left: true # for list-sidebar only
@@ -10,19 +9,16 @@ show_author_byline: true
 show_post_date: true
 show_button_links: false
 # for listing page layout
-layout: list-sidebar # list, list-sidebar, list-grid
+layout: list # list, list-sidebar, list-grid
 
 # for list-sidebar layout
 sidebar: 
   title: A Sidebar for Your Thoughts
   description: |
-    This is a fully featured blog that supports categories,
-    tags, series, and pagination. Even this sidebar offers 
-    a ton of customizations.
     
     Check out the _index.md file in the /blog folder 
     to edit this content. 
-  author: "Kesava Asam"
+  author: ""
   text_link_label: Subscribe via RSS
   text_link_url: /index.xml
   categories_link: true
@@ -32,7 +28,7 @@ sidebar:
 
 # set up common front matter for all pages inside blog/
 cascade:
-  author: "Kesava Asam"
+  author: ""
   show_author_byline: true
   show_post_date: true
   show_comments: true # see site config to choose Disqus or Utterances

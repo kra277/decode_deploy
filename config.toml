@@ -32,7 +32,7 @@ enableEmoji = true
     style = "friendly"
     
 [params]
-  orgName = "NYU"
+  orgName = "Kesava Asam"
   orgLocal = "New York"
   description = "This blog will host different SOPs that were developed during my Bioinfo endeavors."
   favicon = "/img/bioinfo_favicon.ico"

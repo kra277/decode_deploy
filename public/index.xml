@@ -121,20 +121,6 @@
       <description>Font Sizes A A A A A A A A 6rem&#xA;(96px) 5rem&#xA;(80px) 3rem&#xA;(48px) 2.25rem&#xA;(36px) 1.5rem&#xA;(24px) 1.25rem&#xA;(20px) 1rem&#xA;(16px) .875rem&#xA;(14px) Type Samples Head&amp;shy;line Sub&amp;shy;head&amp;shy;line Level 1 Heading One page to rule them all...well, not really. This page displays sample typography and page elements to illustrate their style. Things like headings and paragraphs showing the beautiful type scale, form elements, tabular data, and image layouts just to name a few.</description>
     </item>
     <item>
-      <title></title>
-      <link>http://localhost:4321/about/header/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/header/</guid>
-      <description>Welcome to &amp;ldquo;Decode and Deploy&amp;rdquo;—a blog where I dive into the complexities of bioinformatics, sharing the systems and insights that helped me in my research and teaching.&#xA;My name is Kesava Asam, I am a Bioinformatician working in academia, where I focus on developing reproducible bioinformatics pipelines, easy to interpret graphs and results.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:4321/about/sidebar/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/sidebar/</guid>
-      <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
-    </item>
-    <item>
       <title>Contributors</title>
       <link>http://localhost:4321/contributors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -147,13 +133,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:4321/license/</guid>
       <description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.</description>
-    </item>
-    <item>
-      <title>Why I Started This Blog?</title>
-      <link>http://localhost:4321/about/main/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/main/</guid>
-      <description>** index doesn&amp;rsquo;t contain a body, just front matter above. See about/list.html in the layouts folder **</description>
     </item>
   </channel>
 </rss>

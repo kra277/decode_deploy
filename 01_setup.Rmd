@@ -63,7 +63,7 @@ check_site()
 
 - Format. Pick .Rmarkdown
 
-- Once the code is added to the mardkown, knit it to HTML.
+- Once the code is added to the markdown, knit it to HTML.
 
 - Commit and Push. 
 
